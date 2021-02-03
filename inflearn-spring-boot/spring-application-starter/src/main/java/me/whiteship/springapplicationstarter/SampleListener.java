@@ -1,0 +1,16 @@
+package me.whiteship.springapplicationstarter;
+
+import org.springframework.boot.context.event.ApplicationStartingEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SampleLisener  implements ApplicationListener<ApplicationStartingEvent> {
+
+    @Override
+    public void onApplicationEvent(ApplicationStartingEvent applicationStartingEvent) {
+        System.out.println("========================");
+        System.out.println("Application is Starting");
+        System.out.println("========================");
+    }
+}
