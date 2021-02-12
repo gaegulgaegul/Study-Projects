@@ -7,11 +7,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource(value = {"classpath:/config-${spring.profiles.active}.properties"})
-@ConfigurationProperties("config")
+@ConfigurationProperties("yaml")
 @Setter
 @Getter
-public class ConfigProperties {
+public class YamlConfigProperties {
 
     private String path;
 

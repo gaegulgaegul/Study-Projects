@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource(value = {"classpath:/config-${spring.profiles.active}.properties"})
+@PropertySource(value = {"classpath:/config-${spring.profiles.active:default}.properties"})
 @ConfigurationProperties("config")
 @Setter
 @Getter

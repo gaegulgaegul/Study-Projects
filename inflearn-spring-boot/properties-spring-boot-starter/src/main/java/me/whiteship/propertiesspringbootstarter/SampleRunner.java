@@ -14,6 +14,9 @@ public class SampleRunner implements ApplicationRunner {
     @Autowired
     private ConfigProperties configProperties;
 
+    @Autowired
+    private YamlConfigProperties yamlConfigProperties;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("===================");
@@ -22,6 +25,8 @@ public class SampleRunner implements ApplicationRunner {
         System.out.println(keesunProperties.getSessionTimeout());
         System.out.println("===================");
         System.out.println(configProperties.getPath());
+        System.out.println("===================");
+        System.out.println(yamlConfigProperties.getPath());
         System.out.println("===================");
     }
 }
