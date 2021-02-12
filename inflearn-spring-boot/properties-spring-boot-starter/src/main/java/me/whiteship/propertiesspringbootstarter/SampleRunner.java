@@ -11,12 +11,17 @@ public class SampleRunner implements ApplicationRunner {
     @Autowired
     private KeesunProperties keesunProperties;
 
+    @Autowired
+    private ConfigProperties configProperties;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("===================");
         System.out.println(keesunProperties.getName());
         System.out.println(keesunProperties.getAge());
         System.out.println(keesunProperties.getSessionTimeout());
+        System.out.println("===================");
+        System.out.println(configProperties.getPath());
         System.out.println("===================");
     }
 }
