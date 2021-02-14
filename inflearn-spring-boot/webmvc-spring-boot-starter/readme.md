@@ -17,3 +17,18 @@
 - ViewResolver
     - Accept-Header에 따라 view 응답이 달라진다.
     - [TEST CODE createUser_XML()](./src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
+- 정적 리소스 지원
+    - 정적 리소스 맵핑 /**(root)
+    - 기본 리소스 위치
+        - classpath:/static
+        - classpath:/public
+        - classpath:/resources
+        - classpath:/META-INF/resources
+    - 커스터마이징
+        - application.properties 설정
+            - spring.mvc.static-path-pattern: 맵핑 설정 변경
+            - spring.mvc.static-locations: 리소스 위치 설정 변경
+        - WebMvcConfigurer 설정
+            - WebMvcConfigurer를 상속받아 addResourceHandlers()를 통해 설정
+            - `addResourceLocations()`의 classpath는 마지막에 "/"를 반드시 붙여야 한다.(맵핑이 제대로 안될 수 있다.)
+    - Last-Modified를 헤더에서 확인하고 `304` 코드 반환
