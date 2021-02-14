@@ -14,3 +14,6 @@
         - 요청 본문의 데이터를 convert 해준다.
         - spring converter format에 맞도록 getter/setter 생성 
     - [TEST CODE createUser_JSON()](./src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
+- ViewResolver
+    - Accept-Header에 따라 view 응답이 달라진다.
+    - [TEST CODE createUser_XML()](./src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
