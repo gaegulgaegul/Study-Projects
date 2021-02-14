@@ -32,3 +32,6 @@
             - WebMvcConfigurer를 상속받아 addResourceHandlers()를 통해 설정
             - `addResourceLocations()`의 classpath는 마지막에 "/"를 반드시 붙여야 한다.(맵핑이 제대로 안될 수 있다.)
     - Last-Modified를 헤더에서 확인하고 `304` 코드 반환
+- webjars
+    - 정적 리소스 파일(js, css)를 jar 형식으로 읽어 사용할 수 있다.
+    - webjars-locator-core: webjars의 버전관리를 하지 않아도록 도와준다.
