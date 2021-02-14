@@ -7,7 +7,7 @@
         - MOCK: 내장톰캣 구동 안함
         - RANDOM_PORT, DEFINED_PORT: 내장톰캣 구동
         - NONE: 서블릿 사용 안함
-- MockMvc([SampleControllerTest1](/src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest1.java) 참고)
+- MockMvc([SampleControllerTest1](./src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest1.java) 참고)
     - 기본적인 MVC 패턴의 컨트롤러 검증
     - @AutoConfigureMockMvc 선언
     - MockMvc 빈 주입
