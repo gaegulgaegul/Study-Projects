@@ -11,22 +11,22 @@
     - 기본적인 MVC 패턴의 컨트롤러 검증
     - @AutoConfigureMockMvc 선언
     - MockMvc 빈 주입
-- TestRestTempelate(SampleControllerTest2 참고)
+- TestRestTempelate([SampleControllerTest2](./src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest2.java) 참고)
     - REST api 검증
     - TestRestTempelate 빈 주입
     - JUnit을 통해 검증
-    - @MockBean(SampleControllerTest3 참고)
+    - @MockBean([SampleControllerTest3](./src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest3.java) 참고)
         - ApplicationContext에 있는 빈을 Mock으로 만든 객체로 교체
         - @Test 별로 초기화 된다.
         - [MockBean version error](https://github.com/mockito/mockito/issues/1419)
-- WebTestClient(SampleControllerTest4 참고)
+- WebTestClient([SampleControllerTest4](./src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest4.java) 참고)
     - WebFlux 테스트로 검증
     - spring-boot-starter-webflux 의존성 추가
-- 슬라이스(레이어별) 테스트(SampleControllerTest5 참고)
+- 슬라이스(레이어별) 테스트([SampleControllerTest5](./src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest5.java) 참고)
     - @WebMvcTest, @WebFluxTest, @DataJpaTest 등 레이어 별 테스트 진행
     - 의존성이 없어지므로 해당 레이어 하위의 객체는 MockBean으로 추가
     - @WebMvcTest는 MockMvc를 통해서만 검증할 수 있다.
-- OutputCapture(SampleControllerTest6 참고)
+- OutputCapture([SampleControllerTest6](./src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest6.java) 참고)
     - 콘솔에 찍히는 내용을 캡쳐한다.
     - JUnit 기능으로 public으로 선언하여 사용한다.
     - Log, system print 내용도 캡쳐한다.
