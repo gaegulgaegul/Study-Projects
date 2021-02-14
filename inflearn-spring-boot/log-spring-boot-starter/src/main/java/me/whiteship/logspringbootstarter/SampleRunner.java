@@ -13,9 +13,9 @@ public class SampleRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        logger.info("====================");
-        logger.info("HELLO LOGGER");
+        logger.debug("====================");
+        logger.debug("HELLO LOGGER");
         logger.debug("LOGGING");
-        logger.info("====================");
+        logger.debug("====================");
     }
 }

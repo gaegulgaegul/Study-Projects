@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SampleController3 {
+public class SampleController4 {
 
     @Autowired
     private SampleService sampleService;
 
-    @GetMapping("/hello3")
+    @GetMapping("/hello4")
     public String hello() {
         return "hello " + sampleService.getName();
     }

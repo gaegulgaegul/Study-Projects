@@ -1,2 +1,12 @@
-package me.whiteship.testspringbootstarter.sample;public class SampleService {
+package me.whiteship.testspringbootstarter.sample;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class SampleService {
+
+    public String getName() {
+        return "keesun";
+    }
+
 }
