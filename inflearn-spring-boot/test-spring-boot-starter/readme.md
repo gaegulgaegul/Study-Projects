@@ -7,7 +7,7 @@
         - MOCK: 내장톰캣 구동 안함
         - RANDOM_PORT, DEFINED_PORT: 내장톰캣 구동
         - NONE: 서블릿 사용 안함
-- MockMvc(SampleControllerTest1 참고)
+- MockMvc([SampleControllerTest1](/src/test/java/me/whiteship/testspringbootstarter/sample/SampleControllerTest1.java) 참고)
     - 기본적인 MVC 패턴의 컨트롤러 검증
     - @AutoConfigureMockMvc 선언
     - MockMvc 빈 주입
@@ -18,7 +18,7 @@
     - @MockBean(SampleControllerTest3 참고)
         - ApplicationContext에 있는 빈을 Mock으로 만든 객체로 교체
         - @Test 별로 초기화 된다.
-        - MockBean Error: https://github.com/mockito/mockito/issues/1419
+        - [MockBean version error](https://github.com/mockito/mockito/issues/1419)
 - WebTestClient(SampleControllerTest4 참고)
     - WebFlux 테스트로 검증
     - spring-boot-starter-webflux 의존성 추가
