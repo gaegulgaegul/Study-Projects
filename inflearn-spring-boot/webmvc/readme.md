@@ -50,4 +50,4 @@
 - HtmlUnit
     - Html 템플릿 뷰를 보다 전문적으로 테스트한다.
     - html을 단위 테스트 하기 위한 툴
-    - [HtmlUnit 테스트 참고](./thymeleaf-spring-boot-starter/test/me/whiteship/thymeleafspringbootstarter/sample/SampleControllerTest.java)
+    - [HtmlUnit 테스트 참고](./thymeleaf-spring-boot-starter/src/test/me/whiteship/thymeleafspringbootstarter/sample/SampleControllerTest.java)
