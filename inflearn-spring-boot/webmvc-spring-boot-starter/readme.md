@@ -41,3 +41,10 @@
 - favicon
     - [favicon](https://favicon.io) 생성
     - 기본 리소스 위치에 파일을 넣는다.
+- Thymeleaf
+    - 탬플릿 엔진
+        - 주로 view를 만드는데 사용하고 code generation, email template 등을 사용한다.
+    - JSP를 권장하지 않는 이유
+        - JAR 패키징 할 떄는 동작하지 않고, WAR 패키징을 해야 함.
+        - Undertow는 JSP를 지원하지 않는다.
+    
