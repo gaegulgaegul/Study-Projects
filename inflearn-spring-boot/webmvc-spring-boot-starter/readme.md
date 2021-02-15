@@ -35,3 +35,9 @@
 - webjars
     - 정적 리소스 파일(js, css)를 jar 형식으로 읽어 사용할 수 있다.
     - webjars-locator-core: webjars의 버전관리를 하지 않아도록 도와준다.
+- welcome page
+    - "/" 기본 페이지
+    - 기본 리소스 위치에 index.html 파일생성
+- favicon
+    - [favicon](https://favicon.io) 생성
+    - 기본 리소스 위치에 파일을 넣는다.
