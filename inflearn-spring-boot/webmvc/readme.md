@@ -13,10 +13,10 @@
     - @RequestBody
         - 요청 본문의 데이터를 convert 해준다.
         - spring converter format에 맞도록 getter/setter 생성 
-    - [TEST CODE createUser_JSON()](./src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
+    - [TEST CODE createUser_JSON()](./webmvc-spring-boot-starter/src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
 - ViewResolver
     - Accept-Header에 따라 view 응답이 달라진다.
-    - [TEST CODE createUser_XML()](./src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
+    - [TEST CODE createUser_XML()](./webmvc-spring-boot-starter/src/test/java/me/whiteship/webmvcspringbootstarter/user/UserControllerTest.java) 참고
 - 정적 리소스 지원
     - 정적 리소스 맵핑 /**(root)
     - 기본 리소스 위치
@@ -47,4 +47,7 @@
     - JSP를 권장하지 않는 이유
         - JAR 패키징 할 떄는 동작하지 않고, WAR 패키징을 해야 함.
         - Undertow는 JSP를 지원하지 않는다.
-    
+- HtmlUnit
+    - Html 템플릿 뷰를 보다 전문적으로 테스트한다.
+    - html을 단위 테스트 하기 위한 툴
+    - [HtmlUnit 테스트 참고](./thymeleaf-spring-boot-starter/test/me/whiteship/thymeleafspringbootstarter/sample/SampleControllerTest.java)
