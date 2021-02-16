@@ -51,3 +51,24 @@
     - Html 템플릿 뷰를 보다 전문적으로 테스트한다.
     - html을 단위 테스트 하기 위한 툴
     - [HtmlUnit 테스트 참고](./thymeleaf-spring-boot-starter/src/test/java/me/whiteship/thymeleafspringbootstarter/sample/SampleControllerTest.java)
+- ExceptionHandler
+    - Spring MVC 예외 처리 방법
+        - @ControllerAdvice
+            - 전역으로 특정 Exception을 handle 하여 사용하도록 선언한다.
+        - [@ExceptionHandler](./exception-handler-spring-boot-starter/src/main/java/me/whiteship/exceptionhandlerspringbootstarter/SampleController.java)
+            - @ExceptionHandler를 선언한 컨트롤러 안에서만 사용할 수 있다.
+    - BasicErrorController: Spring boot 기본적으로 등록되어 있는 응답 정의
+        - 커스텀 ErrorController는 BasicErrorController를 상속받아 해당 컨트롤러의 기능을 사용하면서 필요한 기능을 재정의하도록 권장한다.
+        - 커스텀 에러 페이지
+            - 상태 코드 값에 따라 에러 페이지 보여주기
+            - src/main/resources/static|template/error
+            - 404.html
+            - 5xx.html
+            - ErrorViewResolver 구현
+- Spring HATEOAS
+    - 서버: 현재 리소스와 연관된 링크 정보를 클라이언트에게 제공한다.
+        - _links.self에 링크 정보를 담는다.
+    - 클라이언트: 연관된 링크 정보를 바탕으로 리소스에 접근한다.
+    - 향상된 Rest api를 구현할 때 사용한다.
+    - [HATEOAS Controller Code](./hateoas-spring-boot-starter/src/main/java/me/whiteship/hateoasspringbootstarter/SampleController.java)
+    - [HATEOAS Test Code](./hateoas-spring-boot-starter/src/test/java/me/whiteship/hateoasspringbootstarter/SampleControllerTest.java)
