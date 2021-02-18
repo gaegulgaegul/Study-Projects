@@ -72,3 +72,9 @@
     - 향상된 Rest api를 구현할 때 사용한다.
     - [HATEOAS Controller Code](./hateoas-spring-boot-starter/src/main/java/me/whiteship/hateoasspringbootstarter/SampleController.java)
     - [HATEOAS Test Code](./hateoas-spring-boot-starter/src/test/java/me/whiteship/hateoasspringbootstarter/SampleControllerTest.java)
+- CORS
+    - URL 스키마(http, https), hostname, port를 조합한 것이 하나의 origin
+    - SOP(Single Origin Policy)를 우회하기 위한 기술
+    - 서로 다른 origin끼리 통신하도록 한다.
+    - [@CorssOrigin annotation 설정](./cors-spring-boot-starter/src/main/java/me/whiteship/corsspringbootstarter/CorsSpringBootStarterApplication.java)
+    - [WebMvcConfigurer 글로벌 설정](./cors-spring-boot-starter/src/main/java/me/whiteship/corsspringbootstarter/WebConfig.java)
