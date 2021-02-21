@@ -13,4 +13,18 @@
         - H2-console
             - spring-boot-devtools를 의존성 추가해 자동 설정
             - [application.properties 추가](./h2-spring-boot-starter/src/main/resources/application.properties)
-                - 접근방법: 어플리케이션 실행 후 http://localhost:8080/h2-console 접속
+                - 접근방법: 어플리케이션 실행 후 `http://localhost:8080/h2-console` 접속
+- DBCP
+    - spring boot 지원 DBCP
+        - HikariCP(default)
+            - autoCommit(default: true): sql 실행 후 자동으로 커밋
+            - connectionTimeout(default: 30000): DB connection이 애플리케이션에 응답을 못 주는 경우 몇 초 동안 connection을 유지하는지 설정한다.
+            - maximumPoolSize(default: 10): connection 객체를 몇개 유지할 것인지 설정한다.
+        - Tomcat CP
+        - Commons DBCP2
+-MySQL
+    - docker
+        - mysql image 실행
+            - `docker run -p 3306:3306 --name mysql_boot -e MYSQL_ROOT_PASSWORD=1 -e MYSQL_DATABASE=springboot -e MYSQL_USER=keesun -e MYSQL_PASSWORD=pass -d mysql`
+        - mysql image 안에 들어가 bash 명령어 실행
+            - `docker exec -i -t mysql_boot bash`
