@@ -6,12 +6,12 @@ import me.gaegul.mybatisjpa.user.model.User;
 import me.gaegul.mybatisjpa.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserDetailService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
@@ -20,30 +20,27 @@ public class UserService {
         return userMapper.selectUsers();
     }
 
-    @Transactional
-    public List<User> saveUsersInTransactionAndFlush(List<User> users) {
-        userRepository.saveAll(users);
-        userRepository.flush();
-
-        return userMapper.selectUsers();
-    }
-
-    public List<User> saveUsersInFlush(List<User> users) {
-        userRepository.saveAll(users);
-        userRepository.flush();
-
-        return userMapper.selectUsers();
-    }
-
-    @Transactional
-    public List<User> saveUsersInTransaction(List<User> users) {
-        userRepository.saveAll(users);
-
-        return userMapper.selectUsers();
-    }
-
     public List<User> saveUsers(List<User> users) {
         userRepository.saveAll(users);
+        userRepository.flush();
+        return userMapper.selectUsers();
+    }
+
+    public List<User> saveUsersWithAop() {
+        List<User> test = userMapper.selectUsers();
+        System.out.println("before insert count : " + test.size());
+
+        List<User> users = new ArrayList<>();
+        users.add(User.builder().id("1").name("test1").build());
+        users.add(User.builder().id("2").name("test2").build());
+        users.add(User.builder().id("3").name("test3").build());
+
+        userRepository.saveAll(users);
+        userRepository.flush();
+
+        if (true) {
+            throw new IllegalArgumentException("test");
+        }
 
         return userMapper.selectUsers();
     }
