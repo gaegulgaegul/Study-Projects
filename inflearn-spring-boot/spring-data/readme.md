@@ -28,3 +28,9 @@
             - `docker run -p 3306:3306 --name mysql_boot -e MYSQL_ROOT_PASSWORD=1 -e MYSQL_DATABASE=springboot -e MYSQL_USER=keesun -e MYSQL_PASSWORD=pass -d mysql`
         - mysql image 안에 들어가 bash 명령어 실행
             - `docker exec -i -t mysql_boot bash`
+- PostgreSQL
+    - docker
+        - postgre image 실행
+            - `docker run -p 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_USER=keesun -e POSTGRES_DB=springboot --name postgres_boot -d postgres`
+        - postgre image 안에 들어가 bash 명령어 실행
+            - `docker exec -i -t postgres_boot bash`
