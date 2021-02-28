@@ -34,3 +34,15 @@
             - `docker run -p 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_USER=keesun -e POSTGRES_DB=springboot --name postgres_boot -d postgres`
         - postgre image 안에 들어가 bash 명령어 실행
             - `docker exec -i -t postgres_boot bash`
+- Spring Data JPA
+    - ORM(Object-Relation-Mapping)
+        - 객체와 릴레이션을 맵핑할 때 발생하는 불일치를 해결하는 프레임워크
+            - 테이블에서는 식별자만 같으면 같은 테이블로 인식할텐데 객체에서는 식별자를 어떻게 확인하여 같은지 판별할 것인가?
+            - 상속 개념을 테이블에 어떻게 적용할 것인가?
+    - Spring Data JPA -> JPA -> Hibernate -> DataSource
+    - Test
+        - 슬라이싱 테스트를 할 때는 Embedded DB(H2)가 반드시 필요하다.
+    - JPA를 사용한 DB 초기화
+        - spring.jpa.hibernate.ddl-auto=update
+        - spring.jpa.generate-ddl=true
+
