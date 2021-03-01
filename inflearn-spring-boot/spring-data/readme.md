@@ -51,3 +51,14 @@
         - 의존성 : org.flyway:flyway-core
         - resources 하위에 폴더(db/migration)에서 관리(`spring.flyway.locations`를 통해 경로 변경)
         - 파일명은 V숫자__이름.sql(underscore 2개)
+- Redis
+    - docker
+        - redis image 실행
+            - `docker run -p 6379:6379 --name redis_boot -d redis`
+        - redis image 안에 들어가 redis-cli 명령어 실행
+            - `docker exec -i -t redis_boot redis-cli`
+        - redis 명령어
+            - `keys *` : 모든 key 확인
+            - `get [key]` : key에 맵핑되는 value 확인
+            - `hget [key] [field]` : hash key 데이터의 field 데이터 확인
+            - `hgetall [key]` : hash key 모든 데이터 확인
