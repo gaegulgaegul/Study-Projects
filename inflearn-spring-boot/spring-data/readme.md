@@ -62,3 +62,28 @@
             - `get [key]` : key에 맵핑되는 value 확인
             - `hget [key] [field]` : hash key 데이터의 field 데이터 확인
             - `hgetall [key]` : hash key 모든 데이터 확인
+- MongoDB
+    - 특징
+        - json 기반의 document DB
+        - 스키마가 없다.
+    - docker
+        - mongo db image 실행
+            - `docker run -p 27017:27017 --name mongo_boot -d mongo`
+        - mongo db image 안에 들어가 bash 실행
+            - `docker -i -t mongo_boot bash`
+    - Spring Data Mongo
+        - `MongoRepository`, `MongoTemplate` 기본 제공
+    - mongo test
+        - 내장형 MongoDB de.flapdoodle.embed:de.flapdoodle.embed.mongo 의존성 추가
+- Neo4j
+    - 특징
+        - 노드 간의 연관 관계를 영속화하는데 유리한 그래프 DB
+    - docker
+        - neo4j image 실행
+            - `docker run -p 7474:7474 -p 7687:7687 --name neo4j_boot -d neo4j`
+        - neo4j 브라우저 접근
+            - http://localhost:7474
+    - Spring Data Neo4j
+        - `Neo4jTemplate(Deprecated)`, `Neo4kRepository`, `SessionFactory`
+        - 하위 호환성이 좋지 않다. 상위 버전일수록 하위 버전에서 사용하던 클래스가 없을 수 있다.
+        - Neo4j 자체도 하위 호환성이 좋지 않다.
