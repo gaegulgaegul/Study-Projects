@@ -45,4 +45,9 @@
     - JPA를 사용한 DB 초기화
         - spring.jpa.hibernate.ddl-auto=update
         - spring.jpa.generate-ddl=true
-
+- BD migration
+    - FlyWay
+        - DB 스카마, 데이터의 변경을 버전관리 할 수 있다.
+        - 의존성 : org.flyway:flyway-core
+        - resources 하위에 폴더(db/migration)에서 관리(`spring.flyway.locations`를 통해 경로 변경)
+        - 파일명은 V숫자__이름.sql(underscore 2개)
