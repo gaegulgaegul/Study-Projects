@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.web.reactive.function.client.WebClientCustomizer;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.web.client.RestTemplate;
@@ -15,6 +16,8 @@ public class WebFluxRunner implements ApplicationRunner {
 
     @Autowired
     WebClient.Builder builder;
+    @Autowired
+    WebClientCustomizer webClientCustomizer;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -23,7 +26,7 @@ public class WebFluxRunner implements ApplicationRunner {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
-        Mono<String> helloMono = webClient.get().uri("http://localhost:8080/hello")
+        Mono<String> helloMono = webClient.get().uri("/hello")
                 .retrieve()
                 .bodyToMono(String.class);
         helloMono.subscribe(s -> {
@@ -37,7 +40,7 @@ public class WebFluxRunner implements ApplicationRunner {
             stopWatch.start();
         });
 
-        Mono<String> worldMono = webClient.get().uri("http://localhost:8080/world")
+        Mono<String> worldMono = webClient.get().uri("/world")
                 .retrieve()
                 .bodyToMono(String.class);
         worldMono.subscribe(s -> {
