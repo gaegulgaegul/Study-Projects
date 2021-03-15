@@ -19,3 +19,10 @@
             - 상위 버전에는 해결 됨.
     - [JPA EntityManager 사용](./src/main/java/me/whiteship/jpaspringboot/JpaRunner.java)
     - [Hibernate Session 사용](./src/main/java/me/whiteship/jpaspringboot/HibernateRunner.java)
+- Entity Mapping
+    - @Temporal
+        - 날짜를 맵핑해준다.
+        - 자바8 이전에 생성되어 JPA 2.2이상부터 자바8에 추가된 날짜 클래스에 맵핑 할 수 있다.
+        - TemporalType(TIMESTAMP, DATE, TIME)
+    - @Transient
+        - 테이블에 컬럼으로 추가하고 싶지 않고 Entity에서만 사용할 객체를 정의한다.

@@ -13,13 +13,13 @@ public class Account {
 
     private String password;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date created = new Date();
-//
-//    private String yes;
-//
-//    @Transient
-//    private String no;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created = new Date();
+
+    private String yes;
+
+    @Transient
+    private String no;
 
     public Long getId() {
         return id;
