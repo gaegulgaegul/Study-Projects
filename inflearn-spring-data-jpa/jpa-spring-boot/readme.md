@@ -26,3 +26,18 @@
         - TemporalType(TIMESTAMP, DATE, TIME)
     - @Transient
         - 테이블에 컬럼으로 추가하고 싶지 않고 Entity에서만 사용할 객체를 정의한다.
+- Value type Mapping
+    - Entity type과 Value type 구분
+        - 식별자가 있어야 하는가
+        - 독립적으로 존재해야 하는가
+    - Value type 종류
+        - 기본 타입(String, Date, Boolean....)
+        - Composite value type
+        - Collection value type
+            - 기본 type collection
+            - composite type collection
+    - Composite Value type Mapping
+        - @Embadable
+        - @Embadded
+        - @AttributeOverrides
+        - @AttributeOverride
