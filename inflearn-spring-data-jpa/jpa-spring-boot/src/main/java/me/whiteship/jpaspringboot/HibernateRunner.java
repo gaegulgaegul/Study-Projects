@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Component
+//@Component
 @Transactional
 public class HibernateRunner implements ApplicationRunner {
 
@@ -18,7 +18,7 @@ public class HibernateRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Account account = new Account();
+        User account = new User();
         account.setUsername("keesun");
         account.setPassword("hibernate");
 

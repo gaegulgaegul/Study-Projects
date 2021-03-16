@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-//@Component
+@Component
 @Transactional
 public class JpaRunner implements ApplicationRunner {
 
@@ -21,6 +21,12 @@ public class JpaRunner implements ApplicationRunner {
         account.setUsername("keesun");
         account.setPassword("jpa");
 
+        Study study = new Study();
+        study.setName("Spring Data Jpa");
+
+        account.addStudy(study);
+
         entityManager.persist(account);
+        entityManager.persist(study);
     }
 }
