@@ -58,4 +58,18 @@
         - @ManyToOne(주인)
         - @OneToMany(mappedby)
         - 주인한테 관계를 설정해야 DB에 반영이 된다.
+    - Entity 상태와 Cascade
+        - Entity 상태
+            - Transient: JPA가 모르는 상태
+            - Persistent: JPA가 관리 중인 상태(1차 캐시, Dirty Checking, Write Behind,...)
+                - save를 해도 객체의 데이터가 바로 DB에 저장되는건 아니다.
+                - hibernate가 데이터를 저장해야겠다고 판단하는 시점(Transaction이 끝나는 시점)에 실제 저장이 된다.
+                - 1차 캐시: Persistent Context(EntityManager, Session 등)에 객체가 저장된다.
+                - Dirty Checking: 관리 중인 객체의 변경사항을 계속 감지한다.
+                - Write Behind: 관리 중인 객체 상태의 변화를 DB에 최대한 늦게(필요한 시점에) 적용한다.
+            - Detached: JPA가 더 이상 관리하지 않는 상태
+                - Transaction이 끝나서 Session 밖으로 나왔을 떄 상태가 변경된다.
+            - Removed: JPA가 관리하긴 하지만 삭제하기로 한 상태
+        - Cascade: Entity의 상태를 전이시킨다.
+            - CascadeType으로 제어한다.`ex) @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)`
         

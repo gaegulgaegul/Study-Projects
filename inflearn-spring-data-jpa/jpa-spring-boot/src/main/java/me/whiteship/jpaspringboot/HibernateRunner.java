@@ -18,11 +18,24 @@ public class HibernateRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        User account = new User();
+        Account account = new Account();
         account.setUsername("keesun");
         account.setPassword("hibernate");
 
+        Study study = new Study();
+        study.setName("Spring Data Jpa");
+
+        account.addStudy(study);
+
         Session session = entityManager.unwrap(Session.class);
         session.save(account);
+        session.save(study);
+
+        Account keesun = session.load(Account.class, account.getId());
+        keesun.setUsername("whiteship");
+        keesun.setUsername("keesun2");
+        keesun.setUsername("keesun");
+        System.out.println("======================");
+        System.out.println(keesun.getUsername());
     }
 }

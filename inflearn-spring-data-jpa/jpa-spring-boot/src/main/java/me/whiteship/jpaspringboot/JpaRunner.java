@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Component
+//@Component
 @Transactional
 public class JpaRunner implements ApplicationRunner {
 
