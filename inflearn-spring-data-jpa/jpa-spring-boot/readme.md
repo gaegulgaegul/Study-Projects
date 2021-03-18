@@ -97,7 +97,7 @@
                   Root<Post> root = query.from(Post.class);
                   query.select(root);
                 
-                  List<Post> posts = entityManager.createQuery(query1).getResultList();
+                  List<Post> posts = entityManager.createQuery(query).getResultList();
                 ```
             - Native Query
                 - SQL 쿼리 실행
