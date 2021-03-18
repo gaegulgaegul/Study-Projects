@@ -2,6 +2,7 @@ package me.whiteship.jpaspringboot;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@ToString(exclude = "comments")
 public class Post {
 
     @Id

@@ -80,4 +80,28 @@
         - fetch mode를 잘 조정해야 성능에 영향이 있다.
             - N + 1 select 문제
                 - @OneToMany의 fetch mode가 Lazy일 떄, 연관관계의 엔티티를 조회하려고 할 경우 해당 엔티티(연관관계)를 여러번 조회하는 쿼리가 발생한다.
-                - [JPA N+1 문제 및 해결방안](https://jojoldu.tistory.com/165?category=637935) 
+                - [JPA N+1 문제 및 해결방안](https://jojoldu.tistory.com/165?category=637935)
+        - Query
+            - JPQL(HQL)
+                - SQL과 비슷한 문법
+                - DB 테이블이 아닌, 엔티티 객체 모델 기반으로 쿼리 작성
+                ```java
+                  TypedQuery<Post> query = entityManager.createQuery("SELECT p FROM Post AS p", Post.class);
+                  List<Post> posts = query.getResultList();
+                ```
+            - Criteria
+                - 타입 세이프 쿼리
+                ```java
+                  CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+                  CriteriaQuery<Post> query = builder.createQuery(Post.class);
+                  Root<Post> root = query.from(Post.class);
+                  query.select(root);
+                
+                  List<Post> posts = entityManager.createQuery(query1).getResultList();
+                ```
+            - Native Query
+                - SQL 쿼리 실행
+                ```java
+                  List<Post> posts = entityManager.createNativeQuery("select * from post", Post.class)
+                                  .getResultList();
+                ```

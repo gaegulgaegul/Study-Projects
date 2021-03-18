@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Component
+//@Component
 @Transactional
 public class PostHibernateRunner implements ApplicationRunner {
 
