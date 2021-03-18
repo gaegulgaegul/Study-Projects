@@ -72,4 +72,12 @@
             - Removed: JPA가 관리하긴 하지만 삭제하기로 한 상태
         - Cascade: Entity의 상태를 전이시킨다.
             - CascadeType으로 제어한다.`ex) @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)`
-        
+    - Fetch mode
+        - 연관관계에 있는 정보를 어떻게 가지고 올 것인가에 대한 정보
+            - 엔티티를 가져올 떄, 연관관계에 있는 엔티티를 지금 가지고 올 것인가?(Eager) 나중에 가지고 올 것인가?(Lazy)
+                - @OneToMany의 기본값은 Lazy
+                - @ManyToOne의 기본값은 Eager
+        - fetch mode를 잘 조정해야 성능에 영향이 있다.
+            - N + 1 select 문제
+                - @OneToMany의 fetch mode가 Lazy일 떄, 연관관계의 엔티티를 조회하려고 할 경우 해당 엔티티(연관관계)를 여러번 조회하는 쿼리가 발생한다.
+                - [JPA N+1 문제 및 해결방안](https://jojoldu.tistory.com/165?category=637935) 
