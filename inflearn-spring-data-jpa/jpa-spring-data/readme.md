@@ -12,3 +12,30 @@
         - 하지만 jpa(또는 hibernate)에서 자동적으로 필요한 정보만 판단하여 DB에 쿼리를 전달하기 때문에 테스트는 성공한다.
     - [Custom Query Method](./src/main/java/me/whiteship/jpaspringdata/PostRepository.java)
         - [Spring Data Jpa - Query Method Docs](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
+- Repository interface 정의하기
+    - `@RepositoryDefinition`
+        - 특정 Repository당 정의
+        - 제공하고 싶은 기능들만 정의할 수 있다는 장점, 제공하는 메소드가 한눈에 보인다.
+        - 구현한 메소드는 모두 테스트 케이스 작성
+        ```java
+          @RepositoryDefinition(domainClass = Comment.class, idClass = Long.class)
+          public interface CommentRepository {
+          
+              Comment save(Comment comment);
+          
+              List<Comment> findAll();
+          
+          }
+        ```
+    - `@NoRepositoryBean`
+        - 공통 인터페이스로 정의
+        ```java
+          @NoRepositoryBean
+          public interface MyRepository<T, Id extends Serializable> extends Repository<T, Id> {
+          
+              <E extends T> E save(E entity);
+          
+              List<T> findAll();
+          
+          }
+        ```
