@@ -39,3 +39,12 @@
           
           }
         ```
+- Null 처리
+    - 단일 값은 null이 나올 수 있다.
+    - List는 null이 나오지 않는다.(빈 Collection이 나온다.)
+        - JPA에서 제공하는 기능
+    - null 관련 annotation
+        - 런타임 체크 지원
+        - `@NonNull`: null이면 안될 경우 사용
+        - `@Nullable`: null일 수도 있다.
+        - `@NonNullApi, @NonNullField`: 패키지 단위에 붙여 null 체크한다.
