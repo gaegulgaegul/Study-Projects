@@ -48,3 +48,12 @@
         - `@NonNull`: null이면 안될 경우 사용
         - `@Nullable`: null일 수도 있다.
         - `@NonNullApi, @NonNullField`: 패키지 단위에 붙여 null 체크한다.
+- 쿼리 만들기
+    - CREATE(Spring data JPA)
+        - 메서드 이름을 분석해서 쿼리를 만들어준다.
+    - USE_DECLARED_QUERY
+        - 미리 정의해 둔 쿼리 찾아 사용
+        - 메서드에 붙어있는 부가적인 정보를 바탕으로 찾아서 실행한다.
+            - @Query -> (기본값: JPQL)
+    - CREATE_IF_NOT_FOUND(기본값)
+        - 미리 정의한 쿼리 찾아보고 없으면 만들기
