@@ -11,4 +11,10 @@ public interface CommentRepository extends MyRepository<Comment, Long> {
 
     Page<Comment> findByLikeCountGreaterThanAndPost(int likeCount, Post post, Pageable pageable);
 
+    List<Comment> findByCommentContainsIgnoreCaseAndLikeCountGreaterThan(String keyword, int likeCount);
+
+    List<Comment> findByCommentContainsIgnoreCaseOrderByLikeCountDesc(String keyword);
+
+    Page<Comment> findByCommentContainsIgnoreCase(String keyword, Pageable pageable);
+
 }
