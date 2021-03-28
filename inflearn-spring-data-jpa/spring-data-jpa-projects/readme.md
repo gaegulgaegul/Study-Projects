@@ -7,10 +7,10 @@
     - spring data jpa
         - JpaRepository
             - PagingAndSortingRepository(spring data common)를 상속받는다.
-    - [Test](./src/test/java/me/whiteship/jpaspringdata/PostRepositoryTest.java)
+    - [Test](jpa-spring-data/src/test/java/me/whiteship/jpaspringdata/PostRepositoryTest.java)
         - spring data 테스트를 작성할 때 Repository에서 @Transactional이 있어서 기본적으로 롤백된다. 따라서 데이터를 변경하는 쿼리가 생성되지 않는 경우가 생긴다.
         - 하지만 jpa(또는 hibernate)에서 자동적으로 필요한 정보만 판단하여 DB에 쿼리를 전달하기 때문에 테스트는 성공한다.
-    - [Custom Query Method](./src/main/java/me/whiteship/jpaspringdata/PostRepository.java)
+    - [Custom Query Method](jpa-spring-data/src/main/java/me/whiteship/jpaspringdata/PostRepository.java)
         - [Spring Data Jpa - Query Method Docs](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
 - Repository interface 정의하기
     - `@RepositoryDefinition`
@@ -60,3 +60,15 @@
     - `ContainsIgnoreCase`: 대소문자 구분 없이 비교
     - `Stream`으로 리턴 받을 떄, `try-with-resource`로 받아 사용해야 한다.
         - Stream을 사용하고 close해야 한다.
+- Custom Repository
+    - 쿼리 메소드(쿼리 생성 과 쿼리 찾기)로 해결되지 않는 경우 직접 코딩으로 구현
+        - 인터페이스에 기능 추가
+        - 기본 기능 덮어쓰기 가능
+        - 구현 방법
+            - 커스텀 리포지토리 인터페이스 정의
+            - 인터페이스 구현 클래스 만들기(기본 접미어는 Impl)
+                - 접미어 설정
+                    ```java
+                      @EnableJpaRepositories(repositoryImplementationPostfix = "Default")
+                    ```
+            - 엔티티 리포지토리에 커스텀 리포지토리 인터페이스 추가
