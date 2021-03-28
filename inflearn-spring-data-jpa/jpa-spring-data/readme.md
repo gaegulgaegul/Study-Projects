@@ -57,3 +57,6 @@
             - @Query -> (기본값: JPQL)
     - CREATE_IF_NOT_FOUND(기본값)
         - 미리 정의한 쿼리 찾아보고 없으면 만들기
+    - `ContainsIgnoreCase`: 대소문자 구분 없이 비교
+    - `Stream`으로 리턴 받을 떄, `try-with-resource`로 받아 사용해야 한다.
+        - Stream을 사용하고 close해야 한다.
