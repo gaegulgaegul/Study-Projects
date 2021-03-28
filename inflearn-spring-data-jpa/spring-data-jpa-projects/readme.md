@@ -68,7 +68,12 @@
             - 커스텀 리포지토리 인터페이스 정의
             - 인터페이스 구현 클래스 만들기(기본 접미어는 Impl)
                 - 접미어 설정
-                    ```java
-                      @EnableJpaRepositories(repositoryImplementationPostfix = "Default")
-                    ```
+                    - `@EnableJpaRepositories`에 설정
+                        - `repositoryImplementationPostfix`
             - 엔티티 리포지토리에 커스텀 리포지토리 인터페이스 추가
+    - 모든 리포지토리에 공통적으로 추가하고 싶은 기능이 있거나 덮어쓰고 싶은 기본 기능이 있을 때
+        - `JpaRepository`를 상속받는 인터페이스 정의
+            - `@NoRepositoryBean` 반드시 추가
+        - 기본 구현체를 상속받는 커스텀 구현체 구현
+        - `@EnableJpaRepositories`에 설정
+            - `repositoryBaseClass`
