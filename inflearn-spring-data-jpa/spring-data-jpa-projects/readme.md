@@ -77,3 +77,22 @@
         - 기본 구현체를 상속받는 커스텀 구현체 구현
         - `@EnableJpaRepositories`에 설정
             - `repositoryBaseClass`
+- Domain Event Publisher
+    - 도메인(Entity)의 변화를 이벤트로 발생, 이때 리스너를 실행 할 수 있도록 한다.
+    - [EventPublisher](./jpa-second-application/src/main/java/me/whiteship/jpasecondapplication/post/PostPublishedEvent.java)
+    - [EventListener](./jpa-second-application/src/main/java/me/whiteship/jpasecondapplication/post/PostListener.java)
+    - ApplicationContext를 통해 Event 등록
+        ```java
+          Post post = new Post();
+          post.setTitle("event");
+          PostPublishedEvent event = new PostPublishedEvent(post);
+          applicationContext.publishEvent(event);
+        ```
+    - AbstractAggregateRoot를 도메인 클래스에서 상속받아 사용 [코드](./jpa-second-application/src/main/java/me/whiteship/jpasecondapplication/post/Post.java)
+        - 현재는 save()할 때만 발생
+        ```java
+          Post post = new Post();
+          post.setTitle("spring");
+          postRepository.save(post.publish());
+        ```
+    
