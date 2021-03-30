@@ -106,3 +106,18 @@
     - [의존성 추가](./querydsl-application/pom.xml)
     - 커스텀 리포지토리를 사용하면서 Querydsl을 사용하는 경우 구현체가 없어서 에러가 발생한다.(하위 버전)
         - `QuerydslJpaRepository`를 커스텀 리포지토리에 상속받아 사용한다.
+- 웹 지원 기능
+    - 설정
+        - 스프링 부트를 사용하는 경우 자동 설정
+        - 스프링 부트를 사용하지 않는 경우 `@Configuration`의 클래스에 `@EnableSpringDataWebSupport` 추가
+    - 도메인 클래스 컨버터
+        - `@PathVariable, @RequestParam`으로 들어오는 도메인의 Id값을 바로 도메인으로 변환하여 파라미터로 받는다.
+    - @RequestHandler, Pageable, Sort 매개변수 사용
+    - Page 관련 HATEOAS 기능 제공
+        - PagedResourcesAssembler
+        - PagedResource
+    - Payload 프로젝션
+        - 요청으로 들어오는 데이터 중 일부만 바인딩 받아오기
+        - `@ProjectPayload, @XBRead, @JsonPath`
+    - 요청 쿼리 매개변수를 QueryDSL DML Predicate로 받아오기
+        - ?firstname=Mr&lastname=White => Predicate
