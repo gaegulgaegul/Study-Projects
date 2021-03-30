@@ -95,4 +95,14 @@
           post.setTitle("spring");
           postRepository.save(post.publish());
         ```
-    
+- QueryDSL
+    - 조건문을 자바로 구현이 가능하고 타입 세이프하다.
+    - 쿼리 메소드를 대부분 두 가지 중 하나
+        - findOne(Predicate): 다양한 조건으로 무언가 하나를 찾는다.
+        - findAll(Predicate): 다양한 조건으로 무언가 여러 개를 찾는다.
+    - spring data jpa + Querydsl
+        - 인터페이스: QuerydslPredicateExecutor<T>
+        - 구현체: QuerydslPredicateExecutor<T>
+    - [의존성 추가](./querydsl-application/pom.xml)
+    - 커스텀 리포지토리를 사용하면서 Querydsl을 사용하는 경우 구현체가 없어서 에러가 발생한다.(하위 버전)
+        - `QuerydslJpaRepository`를 커스텀 리포지토리에 상속받아 사용한다.
