@@ -1,0 +1,1 @@
+insert into account(id, username, age) values (1, 'gaegul', 20);
