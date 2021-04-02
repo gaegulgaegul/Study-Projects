@@ -119,5 +119,5 @@
     - sql, parameter만 따로 설정할 수 있도록 재정의 하는 인터페이스를 구현한다.
         - [ParamsStrategy](./strategy-parttern/src/main/java/me/gaegul/strategyparttern/template/ParamsStrategy.java)
         - [ResultSetStrategy](./strategy-parttern/src/main/java/me/gaegul/strategyparttern/template/ResultSetStrategy.java)
-    - AccountDao에서 [abstract class](./strategy-parttern/src/main/java/me/gaegul/strategyparttern/template/DataSourceTemplate.java)를 상속받아 사용한다.
+    - [AccountDao](./strategy-parttern/src/main/java/me/gaegul/strategyparttern/account/AccountDao.java)에서 [abstract class](./strategy-parttern/src/main/java/me/gaegul/strategyparttern/template/DataSourceTemplate.java)를 상속받아 사용한다.
     - 이 떄 functional interface만 재정의하여 사용한다.
