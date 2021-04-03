@@ -121,3 +121,9 @@
         - `@ProjectPayload, @XBRead, @JsonPath`
     - 요청 쿼리 매개변수를 QueryDSL DML Predicate로 받아오기
         - ?firstname=Mr&lastname=White => Predicate
+- DomainClassConverter
+    - converter: 하나의 타입을 다른 타입으로 변환하는 인터페이스
+    - 자동으로 converter registry에 들어가게 된다.
+    - 들어가게 되면 spring mvc에서 어떠한 데이터를 바인딩 받아 컨버팅할 때 참고해서 사용한다.
+    - ToEntityConverter <-> ToIdConverter
+    - `ToEntityConverter`: repository를 사용해서 `id`로 `findById`를 한다.

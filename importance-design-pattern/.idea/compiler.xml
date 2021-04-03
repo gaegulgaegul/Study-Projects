@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="anti-project" />
+        <module name="method-template-pattern" />
+        <module name="strategy-parttern" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="anti-project" target="11" />
+      <module name="method-template-pattern" target="11" />
+      <module name="strategy-parttern" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="anti-project" options="-parameters" />
+      <module name="method-template-pattern" options="-parameters" />
+      <module name="strategy-parttern" options="-parameters" />
+    </option>
+  </component>
+</project>
