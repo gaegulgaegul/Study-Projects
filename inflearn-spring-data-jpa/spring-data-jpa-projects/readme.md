@@ -127,3 +127,10 @@
     - 들어가게 되면 spring mvc에서 어떠한 데이터를 바인딩 받아 컨버팅할 때 참고해서 사용한다.
     - ToEntityConverter <-> ToIdConverter
     - `ToEntityConverter`: repository를 사용해서 `id`로 `findById`를 한다.
+- Pageable & Sort
+    - Spring MVC HandlerMethodArgumentResolver
+        - 스프링 MVC 핸들러 메소드의 매개변수로 받을 수 있는 객체를 확장하고 싶을 때 사용
+    - 페이징과 정렬 관련 변수
+        - page: 0부터 시작 
+        - size: 기본값 20
+        - sort: property,(DESC|ASC)
