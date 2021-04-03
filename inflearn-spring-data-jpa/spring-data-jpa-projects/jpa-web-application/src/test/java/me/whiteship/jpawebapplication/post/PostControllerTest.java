@@ -65,4 +65,28 @@ public class PostControllerTest {
                 .andExpect((ResultMatcher) jsonPath("$.content[0].title", is("jpa")));
     }
 
+    @Test
+    public void getHatetosPosts() throws Exception {
+        createPosts();
+
+        mockMvc.perform(get("/posts/hatetos")
+                .param("page", "3")
+                .param("size", "10")
+                .param("sort", "created,desc")
+                .param("sort", "title"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect((ResultMatcher) jsonPath("$.content[0].title", is("jpa")));
+    }
+
+    private void createPosts() {
+        int postCounts = 100;
+        while (postCounts > 0) {
+            Post post = new Post();
+            post.setTitle("jpa");
+            postRepository.save(post);
+            postCounts--;
+        }
+    }
+
 }

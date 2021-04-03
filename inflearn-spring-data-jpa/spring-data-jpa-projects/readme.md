@@ -134,3 +134,7 @@
         - page: 0부터 시작 
         - size: 기본값 20
         - sort: property,(DESC|ASC)
+- HATETOS
+    - Page를 PageResource로 변환하기
+        - HATETOS 의존성 추가
+        - 핸들러 매개변수로 PagedResourcesAssembler
