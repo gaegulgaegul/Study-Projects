@@ -138,3 +138,22 @@
     - Page를 PageResource로 변환하기
         - HATETOS 의존성 추가
         - 핸들러 매개변수로 PagedResourcesAssembler
+- JpaRepository
+    - Spring @Repository
+        - SQLException 또는 JPA 관련 예외를 spring의 DataAccessException으로 변환해준다.
+- Entity save
+    - JpaRepository.save()
+        - Transient 상태: `EntityManager.persist()`
+        - Detached 상태: `EntityManager.merge()`
+    - Transient인지 Detached인지 판단하는 기준
+        - Entity의 @Id 프로퍼티를 찾는다. 해당 프로퍼티가 null이면 Transient 상태로 판단하고 null이 아니면 Detached 상태로 판단한다.
+        - Entity가 Persistable 인터페이스를 구현하고 있다면 `isNew()` 메소드에 위임한다.
+        - JpaRepositoryFactory를 상속받는 클래스를 만들고 getEntityInformation()을 오버라이딩해서 자신이 원하는 판단 로직을 구현할 수 있다.
+    - EntityManager.persist()
+        - persist 메소드에 넘긴 객체를 영속화하고 저장 후 그대로 반환한다.
+        - 저장될 객체와 저장된 객체가 같은(주소값이 같은) 객체
+    - EntityManager.merge()
+        - merge 메소드에 넘긴 객체를 복사하여 복사한 객체를 영속화하고 반환한다.
+        - 저장될 객체와 저장된 객체가 다른(주소값이 다른) 객체
+    - Entity의 저장 시 persist인지 merge인지 판단하기 힘들다. 반드시 반환되는 객체를 사용해야 한다.
+        - 저장할 Entity를 수정하면 dirty checking 등 이슈가 일어날 수 있다.
