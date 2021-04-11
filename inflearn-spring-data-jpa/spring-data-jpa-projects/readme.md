@@ -167,3 +167,14 @@
         - update 또는 delete 쿼리라는 것을 알려준다.
         - `clearAutomatically`: 쿼리 실행 후 persistent context를 비워야 find 실행 시 새로 읽어온다.
         - `flushAutomatically`: 쿼리 실행 전에 그 동안 persistent context에 담긴 캐시를 flush 해준다.
+- EntityGraph
+    - 쿼리 메소드 마다 연관 관계의 Fetch 모드를 설정할 수 있다.
+        - @OneToMany : 기본 LAZY
+        - @ManyToOne : 기본 EAGER
+    - @NamedEntityGraph
+        - @Entity에서 재사용할 여러 엔티티의 그룹을 정의한다.
+    - @EntityGraph
+        - @NamedEntityGraph에 정의되어 있는 엔티티 그룹을 사용한다.
+        - 그래프 타입 설정 기능
+            - FETCH(기본값) : 설정한 엔티티 애트리뷰트는 EAGER 패치 나머지는 LAZY 패치
+            - LOAD: 설정한 엔티티 애트리뷰트는 EAGER 패치 나머지는 기본 패치 전략을 따른다.
