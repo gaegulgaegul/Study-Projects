@@ -157,3 +157,13 @@
         - 저장될 객체와 저장된 객체가 다른(주소값이 다른) 객체
     - Entity의 저장 시 persist인지 merge인지 판단하기 힘들다. 반드시 반환되는 객체를 사용해야 한다.
         - 저장할 Entity를 수정하면 dirty checking 등 이슈가 일어날 수 있다.
+- Update
+    ```java
+      @Modifying(clearAutomatically = true, flushAutomatically = true)
+      @Query("UPDATE Post p SET p.title = ?1 WHERE p.id = ?2")
+      int updateTitle(String title, Long id);
+    ```
+    - @Modifying
+        - update 또는 delete 쿼리라는 것을 알려준다.
+        - `clearAutomatically`: 쿼리 실행 후 persistent context를 비워야 find 실행 시 새로 읽어온다.
+        - `flushAutomatically`: 쿼리 실행 전에 그 동안 persistent context에 담긴 캐시를 flush 해준다.

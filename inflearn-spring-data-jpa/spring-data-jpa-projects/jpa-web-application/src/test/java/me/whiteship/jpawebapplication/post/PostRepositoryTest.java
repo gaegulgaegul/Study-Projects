@@ -4,12 +4,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -42,6 +44,39 @@ public class PostRepositoryTest {
 
         List<Post> all = postRepository.findAll();
         assertThat(all.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void findByTitleStartingWith() {
+        createdPost();
+
+        List<Post> spring = postRepository.findByTitleStartingWith("spring");
+        assertThat(spring.size()).isEqualTo(1);
+    }
+
+    private Post createdPost() {
+        Post post = new Post();
+        post.setTitle("spring data jpa");
+        return postRepository.save(post);
+    }
+
+    @Test
+    public void findByTitle() {
+        createdPost();
+
+        List<Post> byTitle = postRepository.findByTitle("spring data jpa", Sort.by("title"));
+        assertThat(byTitle.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void updateTitle() {
+        Post post = createdPost();
+
+        String hibernate = "hibernate";
+        int update = postRepository.updateTitle(hibernate, post.getId());
+
+        Optional<Post> byId = postRepository.findById(post.getId());
+        assertThat(byId.get().getTitle()).isEqualTo(hibernate);
     }
 
 }
