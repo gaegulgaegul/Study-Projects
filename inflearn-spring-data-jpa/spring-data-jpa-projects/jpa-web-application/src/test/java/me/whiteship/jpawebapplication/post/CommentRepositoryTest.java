@@ -13,13 +13,62 @@ public class CommentRepositoryTest {
     @Autowired
     CommentRepository commentRepository;
 
+    @Autowired
+    PostRepository postRepository;
+
     @Test
-    public void crud() {
-        commentRepository.getById(1L);
+    public void crud1() {
+        Post post = new Post();
+        post.setTitle("jpa");
+        Post savedPost = postRepository.save(post);
 
-        System.out.println("=======================");
+        Comment comment = new Comment();
+        comment.setPost(savedPost);
+        comment.setUp(10);
+        comment.setDown(1);
+        commentRepository.save(comment);
 
-        commentRepository.findById(1L);
+        commentRepository.findByPost_Id(savedPost.getId(), CommentSummary.class).forEach(c -> {
+            System.out.println("===============");
+            System.out.println(c.getVotes());
+        });
+    }
+
+    @Test
+    public void crud2() {
+        Post post = new Post();
+        post.setTitle("jpa");
+        Post savedPost = postRepository.save(post);
+
+        Comment comment = new Comment();
+        comment.setPost(savedPost);
+        comment.setUp(10);
+        comment.setDown(1);
+        commentRepository.save(comment);
+
+        commentRepository.findByPost_Id(savedPost.getId(), CommentSum.class).forEach(c -> {
+            System.out.println("===============");
+            System.out.println(c.getVotes());
+        });
+    }
+
+    @Test
+    public void crud3() {
+        Post post = new Post();
+        post.setTitle("jpa");
+        Post savedPost = postRepository.save(post);
+
+        Comment comment = new Comment();
+        comment.setComment("test");
+        comment.setPost(savedPost);
+        comment.setUp(10);
+        comment.setDown(1);
+        commentRepository.save(comment);
+
+        commentRepository.findByPost_Id(savedPost.getId(), CommentOnly.class).forEach(c -> {
+            System.out.println("===============");
+            System.out.println(c.getComment());
+        });
     }
 
 }
