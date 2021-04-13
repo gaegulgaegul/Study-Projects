@@ -202,3 +202,15 @@
     - 의존성 및 IDE 설정이 필요하다.
     - Repository `JpaSpecificationExecutor` 추기
     - [Spec을 정의](./jpa-web-application/src/main/java/me/whiteship/jpawebapplication/post/CommentSpecs.java)해야 한다.
+- Query by Example
+    - Example = Prove + ExampleMatcher
+        - Prove는 필드에 어떤 값들을 가지고 있는 도메인 객체
+        - ExampleMatcher는 Prove에 들어있는 그 필드의 값들을 어떻게 쿼리할 데이터와 비교할지 정의한 것
+        - Example은 그 둘을 하나로 합친 것. 이것로 쿼리를 함
+    - 장점
+        - 별다른 코드 생성기나 애노테이션 처리기 필요 없음
+        - 도메인 객체 리팩토링 해도 기존 쿼리가 깨질 걱정하지 않아도 됨
+        - 데이터 기술에 독립적인 API
+    - 단점
+        - nested 또는 프로퍼티 그룹 제약 조건을 못 만든다.
+        - 조건이 제한적이다. 문자열(String)은 starts/contains/ends/refex 가 가능하고 그 밖에 property는 값이 정확히 일치해야 한다.
