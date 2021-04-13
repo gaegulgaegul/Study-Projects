@@ -196,3 +196,9 @@
         ```java
           <T> List<T> findByPost_Id(Long id, Class<T> type);
         ```
+- Specifications
+    - DDD에서 언급하는 Specification 개념을 차용한 것
+    - QueryDSL의 Predicate와 비슷하다.
+    - 의존성 및 IDE 설정이 필요하다.
+    - Repository `JpaSpecificationExecutor` 추기
+    - [Spec을 정의](./jpa-web-application/src/main/java/me/whiteship/jpawebapplication/post/CommentSpecs.java)해야 한다.
