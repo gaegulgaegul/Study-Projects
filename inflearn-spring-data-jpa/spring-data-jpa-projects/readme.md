@@ -224,3 +224,17 @@
             - 여러 개 트랜잭션이 동시에 DB에 접근할 경우 어떻게 트랜잭션을 처리할 것인가
         - Propagation
             - 트랜잭션을 어떻게 전파시킬 것인가
+- Auditing
+    - 엔티티의 변경 시점에 언제, 누가 변경했는지에 대한 정보를 기록하는 기능
+    - 설정
+        - 메인 애플리케이션 위에 @EnableJpaAuditing 추가
+        - 앤티티 클래스 위에 @EntityListeners(AuditingEntityListener.class) 추가
+        - AuditorAware 구현체 만들기
+        - @EnableJpaAuditing에 AuditorAware 빈 이름 설정하
+    - JPA 라이프사이클 이벤트 사용하기
+        - 어떠한 엔티티에 변화가 일어날 떄 콜백을 실행 할 수 있다.
+        - 콜백은 엔티티에 정의
+        - Audit을 설정하지 않고 사용할 수 있다.
+        - @PrePersist
+        - @PreUpdate
+        
