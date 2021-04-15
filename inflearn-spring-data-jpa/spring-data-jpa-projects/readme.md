@@ -214,3 +214,13 @@
     - 단점
         - nested 또는 프로퍼티 그룹 제약 조건을 못 만든다.
         - 조건이 제한적이다. 문자열(String)은 starts/contains/ends/refex 가 가능하고 그 밖에 property는 값이 정확히 일치해야 한다.
+- Transaction
+    - @Transactional
+        - 메소드에 가장 가까운 설정이 우선시 된다.
+        - readOnly=true의 장점
+            - 옵티마이저 성능 최적화를 할 수 있는 여지가 생긴다.
+            - Flush 모드를 NAVER로 설정하여, Dirty cheching을 하지 않도록한다.
+        - Isolation
+            - 여러 개 트랜잭션이 동시에 DB에 접근할 경우 어떻게 트랜잭션을 처리할 것인가
+        - Propagation
+            - 트랜잭션을 어떻게 전파시킬 것인가
