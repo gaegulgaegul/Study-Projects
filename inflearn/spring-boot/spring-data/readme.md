@@ -1,0 +1,89 @@
+### Spring Data
+
+- 인메모리 데이터베이스
+    - 종류
+        - h2
+        - HSQL
+        - Derby
+    - Spring JDBC가 클래스 패스에 있으면 자동 설정이 필요한 빈을 설정해준다.
+        - DataSource
+        - JdbcTemplate
+    - H2
+        - datasource 설정이 없다면 자동으로 h2 연결된다.
+        - H2-console
+            - spring-boot-devtools를 의존성 추가해 자동 설정
+            - [application.properties 추가](./h2-spring-boot-starter/src/main/resources/application.properties)
+                - 접근방법: 어플리케이션 실행 후 `http://localhost:8080/h2-console` 접속
+- DBCP
+    - spring boot 지원 DBCP
+        - HikariCP(default)
+            - autoCommit(default: true): sql 실행 후 자동으로 커밋
+            - connectionTimeout(default: 30000): DB connection이 애플리케이션에 응답을 못 주는 경우 몇 초 동안 connection을 유지하는지 설정한다.
+            - maximumPoolSize(default: 10): connection 객체를 몇개 유지할 것인지 설정한다.
+        - Tomcat CP
+        - Commons DBCP2
+-MySQL
+    - docker
+        - mysql image 실행
+            - `docker run -p 3306:3306 --name mysql_boot -e MYSQL_ROOT_PASSWORD=1 -e MYSQL_DATABASE=springboot -e MYSQL_USER=keesun -e MYSQL_PASSWORD=pass -d mysql`
+        - mysql image 안에 들어가 bash 명령어 실행
+            - `docker exec -i -t mysql_boot bash`
+- PostgreSQL
+    - docker
+        - postgre image 실행
+            - `docker run -p 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_USER=keesun -e POSTGRES_DB=springboot --name postgres_boot -d postgres`
+        - postgre image 안에 들어가 bash 명령어 실행
+            - `docker exec -i -t postgres_boot bash`
+- Spring Data JPA
+    - ORM(Object-Relation-Mapping)
+        - 객체와 릴레이션을 맵핑할 때 발생하는 불일치를 해결하는 프레임워크
+            - 테이블에서는 식별자만 같으면 같은 테이블로 인식할텐데 객체에서는 식별자를 어떻게 확인하여 같은지 판별할 것인가?
+            - 상속 개념을 테이블에 어떻게 적용할 것인가?
+    - Spring Data JPA -> JPA -> Hibernate -> DataSource
+    - Test
+        - 슬라이싱 테스트를 할 때는 Embedded DB(H2)가 반드시 필요하다.
+    - JPA를 사용한 DB 초기화
+        - spring.jpa.hibernate.ddl-auto=update
+        - spring.jpa.generate-ddl=true
+- BD migration
+    - FlyWay
+        - DB 스카마, 데이터의 변경을 버전관리 할 수 있다.
+        - 의존성 : org.flyway:flyway-core
+        - resources 하위에 폴더(db/migration)에서 관리(`spring.flyway.locations`를 통해 경로 변경)
+        - 파일명은 V숫자__이름.sql(underscore 2개)
+- Redis
+    - docker
+        - redis image 실행
+            - `docker run -p 6379:6379 --name redis_boot -d redis`
+        - redis image 안에 들어가 redis-cli 명령어 실행
+            - `docker exec -i -t redis_boot redis-cli`
+        - redis 명령어
+            - `keys *` : 모든 key 확인
+            - `get [key]` : key에 맵핑되는 value 확인
+            - `hget [key] [field]` : hash key 데이터의 field 데이터 확인
+            - `hgetall [key]` : hash key 모든 데이터 확인
+- MongoDB
+    - 특징
+        - json 기반의 document DB
+        - 스키마가 없다.
+    - docker
+        - mongo db image 실행
+            - `docker run -p 27017:27017 --name mongo_boot -d mongo`
+        - mongo db image 안에 들어가 bash 실행
+            - `docker -i -t mongo_boot bash`
+    - Spring Data Mongo
+        - `MongoRepository`, `MongoTemplate` 기본 제공
+    - mongo test
+        - 내장형 MongoDB de.flapdoodle.embed:de.flapdoodle.embed.mongo 의존성 추가
+- Neo4j
+    - 특징
+        - 노드 간의 연관 관계를 영속화하는데 유리한 그래프 DB
+    - docker
+        - neo4j image 실행
+            - `docker run -p 7474:7474 -p 7687:7687 --name neo4j_boot -d neo4j`
+        - neo4j 브라우저 접근
+            - http://localhost:7474
+    - Spring Data Neo4j
+        - `Neo4jTemplate(Deprecated)`, `Neo4kRepository`, `SessionFactory`
+        - 하위 호환성이 좋지 않다. 상위 버전일수록 하위 버전에서 사용하던 클래스가 없을 수 있다.
+        - Neo4j 자체도 하위 호환성이 좋지 않다.

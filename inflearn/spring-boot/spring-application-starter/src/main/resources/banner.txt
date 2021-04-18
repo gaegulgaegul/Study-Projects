@@ -1,0 +1,3 @@
+=========================
+Keesun Spring Boot ${application.version}
+=========================

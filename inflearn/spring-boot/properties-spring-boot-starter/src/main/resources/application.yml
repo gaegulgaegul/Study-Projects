@@ -1,0 +1,10 @@
+spring:
+  profiles: default
+yaml:
+  path: c://
+
+---
+spring:
+  profiles: dev
+yaml:
+  path: /User/LMS

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true">
+        <processor name="org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor" />
+      </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jpa-second-application" />
+        <module name="jpa-web-application" />
+        <module name="jpa-first-application" />
+        <module name="querydsl-application" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jpa-first-application" target="1.8" />
+      <module name="jpa-second-application" target="1.8" />
+      <module name="jpa-web-application" target="1.8" />
+      <module name="querydsl-application" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jpa-first-application" options="-parameters" />
+      <module name="jpa-second-application" options="-parameters" />
+      <module name="jpa-web-application" options="-parameters" />
+      <module name="querydsl-application" options="-parameters" />
+    </option>
+  </component>
+</project>
