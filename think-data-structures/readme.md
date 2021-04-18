@@ -119,3 +119,29 @@
     - `clear`
         - head는 요소 개수에 비례해 가비지 컬력터가 동작한다.
         - clear는 선형.
+
+## LinkedList 클래스
+- 4.1 [MyLinkedList](./src/main/java/me/gaegul/thinkdatastructures/ch3/MyLinkedList.java) 메소드 분류하기
+    - `indexOf`
+        - 반복마다 equals 메소드(상수 시간) 호출
+        - 반복은 n번 실횅된다.
+        - indexOf는 리스트의 크기에 비례한다. 선형.
+    - `add`
+        - getNode 메소드가 선형
+        - add 메소드는 getNode 메소드 전후 실행 로직이 상수 시간
+        - add 메소드는 선형.
+    - `remove`
+        - 선형인 get 메소드와 getNode 메소드를 제외하면 상수 시간
+        - remove 메소드는 선형.
+- 4.2 MyArrayList와 MyLinkedList 비교하기
+    |구분|MyArrayList|MyLinkedList|
+    |:---|:---:|:---:|
+    |add(끝)|1|n|
+    |add(시작)|n|1|
+    |add(일반적으로)|n|n|
+    |get/set|1|n|
+    |indexOf/lastIndexOf|n|n|
+    |isEmpty/size|1|1|
+    |remove(끝)|1|n|
+    |remove(시작)|n|1|
+    |remove(일반적으로)|n|n|
