@@ -113,3 +113,9 @@
         - 자료구조가 연결되었다 함은 노드 객체들이 다른 노드객체를 참조하고 있는 상태를 의미
         - 연결 리스트에서 각 노드는 리스트의 다음 노드에 대한 참조를 포함.
         - 연결구조의 예는 트리와 그래프가 있다.
+- 3.6 가비지 컬렉션
+    - [MyArrayList](./src/main/java/me/gaegul/thinkdatastructures/ch2/MyArrayList.java)의 배열은 늘어나지만 줄어들진 않는다. 배열은 가비지 컬렉션을 하지 않는다.
+    - [MyLinkedList](./src/main/java/me/gaegul/thinkdatastructures/ch3/MyLinkedList.java)의 clear 메소드는 head를 null로 바꾼다. 이때 가비지 컬렉션을 한다.
+    - `clear`
+        - head는 요소 개수에 비례해 가비지 컬력터가 동작한다.
+        - clear는 선형.
