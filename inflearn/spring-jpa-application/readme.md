@@ -14,10 +14,13 @@
     - @Basic(fetch = FetchType.EAGER)
         - 컬럼의 기본 타입을 매핑해준다.
         - 기본 Lazy
-- 회원가입: 컨트롤러
+- 회원가입
     - GET "/sign-up" 요청을 받아서 account/sign-up.html 페이지를 보여준다.
     - [AccountController](./src/main/java/com/studyolle/account/AccountController.java)
+        - [model](./src/main/java/com/studyolle/account/SignUpForm.java) 정보 전달(닉네임, 이메일, 패스워드)
     - [AccountControllerTest](./src/test/java/com/studyolle/account/AccountControllerTest.java)
         - `@AutoConfigureMockMvc`: MockMvc 자동 설정 추가
-    - 주의사항
-        - [Spring Security 설정](./src/main/java/com/studyolle/config/SecurityConfig.java)을 해야 페이지가 보인다.
+        - view, model 테스트
+    - [Spring Security 설정](./src/main/java/com/studyolle/config/SecurityConfig.java)
+        - 허용할 화면 설정
+        - static resources 설정
