@@ -148,7 +148,8 @@
 - 4.3 프로파일
     - [Profiler](src/main/java/me/gaegul/ch4/Profiler.java)
         - 문제 크기의 범위를 인자로 받아 실행하는 코드를 포함하여 실행시간을 측정하고 결과를 그래프에 출력
-- 4.4 결과 해석하기
+- 4.4 [결과](./src/main/java/me/gaegul/ch4/ProfileListAdd.java) 해석하기
+    - `profileArrayListAddEnd()` 메소드 실행
     - ArrayList 클래스의 add 메소드가 끝에 한개 요소를 추가할 때 상수 시간이 걸리는 것으로 예상
     - n개 요소를 추가하면 전체 시간은 선형
     - 실행시간이 n^k에 비례한다면 기울기 k의 직선을 보게 된다.
