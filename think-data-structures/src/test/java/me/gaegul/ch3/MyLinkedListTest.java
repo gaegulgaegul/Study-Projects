@@ -1,6 +1,6 @@
-package me.gaegul.thinkdatastructures.ch3;
+package me.gaegul.ch3;
 
-import me.gaegul.thinkdatastructures.ch2.MyArrayListTest;
+import me.gaegul.ch2.MyArrayListTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;

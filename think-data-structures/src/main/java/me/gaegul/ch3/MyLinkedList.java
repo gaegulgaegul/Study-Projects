@@ -1,4 +1,4 @@
-package me.gaegul.thinkdatastructures.ch3;
+package me.gaegul.ch3;
 
 import java.util.*;
 

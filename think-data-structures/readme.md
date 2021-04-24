@@ -25,7 +25,7 @@
     - 따라서 compareTo 메소드를 제공해야 한다.
 - 1.3 List Interface
     - JCF(Java Collection Framework)는 List라는 interface를 정의하고 ArrayList, LinkedList 두 구현 클래스를 제공한다.
-    - ArrayList, LinkedList는 List 인터페이스의 메소드를 제공하므로 상호교환 할 수 있다.([예제코드](./src/main/java/me/gaegul/thinkdatastructures/ch1/ListClientExample.java))
+    - ArrayList, LinkedList는 List 인터페이스의 메소드를 제공하므로 상호교환 할 수 있다.([예제코드](src/main/java/me/gaegul/ch1/ListClientExample.java))
     - 라이브러리 사용 시 인터페이스만 의존하고 구현 클래스에 의존하면 안된다.
         - 구현 클래스에 의존하면 구현이 변경될 때 코드를 수정해야 한다.
         - 인터페이스에 의존하면 코드는 그대로 사용할 수 있다.
@@ -54,7 +54,7 @@
         - 실행시간이 n^2에 비례하면 이차 알고리즘
         - 리스트에 있는 요소가 두번 이상 나타나는지 확인한다면 n개의 요소가 있고 각각 n-1개의 다른 요소와 비교한다.
         - 총 비교 횟수는 n^2-n이 되어 n이 커지면서 n^2에 비례한다.
-- 2.1 [선택 정렬](./src/main/java/me/gaegul/thinkdatastructures/ch2/SelectionSort.java)
+- 2.1 [선택 정렬](src/main/java/me/gaegul/ch2/SelectionSort.java)
     - `swapElements`
         - 배열에 있는 두 요소의 값을 바꾼다.
         - 요소를 읽고 쓰는 것은 `상수 시간 연산`이다.
@@ -73,7 +73,7 @@
     - 선형 연산을 n번 반복하면 `이차`
 
 ## ArrayList 클래스
-- 3.1 [MyArrayList](./src/main/java/me/gaegul/thinkdatastructures/ch2/MyArrayList.java) 메서드 분류하기
+- 3.1 [MyArrayList](src/main/java/me/gaegul/ch2/MyArrayList.java) 메서드 분류하기
     - `get`
         - get은 상수 시간.
     - `set`
@@ -109,19 +109,19 @@
         - 삭제 요소가 n에 비례한다면 removeAll은 이차, 예를 들어 제거할 리스트에 있는 요소들이 1%를 포함하는 경우 반복을 n에 비례하게 한다.
         - 삭제 요소가 상수라면 removeAll은 선형, 예를 들어 삭제할 요소가 항상 100건 이하인 경우 반복은 최대 100번만 하면 된다.
 - 3.4 연결 자료구조
-    - [노드](./src/main/java/me/gaegul/thinkdatastructures/ch3/LinkedListExample.java)
+    - [노드](src/main/java/me/gaegul/ch3/LinkedListExample.java)
         - 자료구조가 연결되었다 함은 노드 객체들이 다른 노드객체를 참조하고 있는 상태를 의미
         - 연결 리스트에서 각 노드는 리스트의 다음 노드에 대한 참조를 포함.
         - 연결구조의 예는 트리와 그래프가 있다.
 - 3.6 가비지 컬렉션
-    - [MyArrayList](./src/main/java/me/gaegul/thinkdatastructures/ch2/MyArrayList.java)의 배열은 늘어나지만 줄어들진 않는다. 배열은 가비지 컬렉션을 하지 않는다.
-    - [MyLinkedList](./src/main/java/me/gaegul/thinkdatastructures/ch3/MyLinkedList.java)의 clear 메소드는 head를 null로 바꾼다. 이때 가비지 컬렉션을 한다.
+    - [MyArrayList](src/main/java/me/gaegul/ch2/MyArrayList.java)의 배열은 늘어나지만 줄어들진 않는다. 배열은 가비지 컬렉션을 하지 않는다.
+    - [MyLinkedList](src/main/java/me/gaegul/ch3/MyLinkedList.java)의 clear 메소드는 head를 null로 바꾼다. 이때 가비지 컬렉션을 한다.
     - `clear`
         - head는 요소 개수에 비례해 가비지 컬력터가 동작한다.
         - clear는 선형.
 
 ## LinkedList 클래스
-- 4.1 [MyLinkedList](./src/main/java/me/gaegul/thinkdatastructures/ch3/MyLinkedList.java) 메소드 분류하기
+- 4.1 [MyLinkedList](src/main/java/me/gaegul/ch3/MyLinkedList.java) 메소드 분류하기
     - `indexOf`
         - 반복마다 equals 메소드(상수 시간) 호출
         - 반복은 n번 실횅된다.
@@ -146,6 +146,10 @@
     |remove(시작)|n|1|
     |remove(일반적으로)|n|n|
 - 4.3 프로파일
-    - Profiler
+    - [Profiler](src/main/java/me/gaegul/ch4/Profiler.java)
         - 문제 크기의 범위를 인자로 받아 실행하는 코드를 포함하여 실행시간을 측정하고 결과를 그래프에 출력
+- 4.4 결과 해석하기
+    - ArrayList 클래스의 add 메소드가 끝에 한개 요소를 추가할 때 상수 시간이 걸리는 것으로 예상
+    - n개 요소를 추가하면 전체 시간은 선형
+    
     

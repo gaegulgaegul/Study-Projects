@@ -1,4 +1,4 @@
-package me.gaegul.thinkdatastructures.ch1;
+package me.gaegul.ch1;
 
 import java.util.ArrayList;
 import java.util.List;
