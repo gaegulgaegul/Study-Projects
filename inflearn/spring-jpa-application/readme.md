@@ -24,3 +24,13 @@
     - [Spring Security 설정](./src/main/java/com/studyolle/config/SecurityConfig.java)
         - 허용할 화면 설정
         - static resources 설정
+    - 폼 검증
+        - [JSR 303 애노테이션 검증](./src/main/java/com/studyolle/account/SignUpForm.java)
+            - 값의 길이, 필수값
+        - [커스텀 검증](./src/main/java/com/studyolle/account/SignUpFormValidator.java)
+            - 중복 이메일, 닉네임 여부 확인
+        - 폼 에러 있을 시, 폼 다시 보여주기
+    - 회원가입 처리
+        - 회원 정보 저장
+        - 인증 이메일 발송
+        - 처리 후 첫 페이지로 리다이렉트(Post-Redirect-Get 패턴)
