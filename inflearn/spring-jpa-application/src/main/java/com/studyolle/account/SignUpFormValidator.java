@@ -17,13 +17,13 @@ public class SignUpFormValidator implements Validator {
     }
 
     @Override
-    public void validate(Object o, Errors errors) {
-        SignUpForm signUpForm = (SignUpForm) errors;
-        if (accountRepository.exsitsByEmail(signUpForm.getEmail())) {
+    public void validate(Object object, Errors errors) {
+        SignUpForm signUpForm = (SignUpForm) object;
+        if (accountRepository.existsByEmail(signUpForm.getEmail())) {
             errors.rejectValue("email", "email.invalid", new Object[]{signUpForm.getEmail()}, "이미 사용중인 이메일입니다.");
         }
 
-        if (accountRepository.exsitsByNickname(signUpForm.getNickname())) {
+        if (accountRepository.existsByNickname(signUpForm.getNickname())) {
             errors.rejectValue("nickname", "nickname.invalid", new Object[]{signUpForm.getNickname()}, "이미 사용중인 닉네임입니다.");
         }
     }
