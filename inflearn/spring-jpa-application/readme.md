@@ -47,3 +47,10 @@
             - `PasswordEncoderFactories.createDelegatingPasswordEncoder()`
             - 여러 해시 알고리즘을 지원하는 패스워드 인코더
             - bcrypt는 다른 해시 알고리즘에 비해 의도적으로 해시되는 속도가 느리다. 해커들이 여러번 시도할 수 없도록 하기 위해
+    - 인증 메일 확인
+        - `GET /check-email-token token=${token} email=${email} 요청 처리`
+          - 이메일이 정확하지 않은 경우에 대한 에러 처리
+          - 토큰이 정확하지 않은 경우에 대한 에러 처리
+          - 이메일과 토큰이 정확한 경우 가입 완료 처리
+              - 가입일시 설정
+              - 이메일 인증 여부 true로 설정
