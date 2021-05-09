@@ -64,3 +64,11 @@
               Authentication authentication = authenticationManager.authenticate(token); // 역할 부여
               SecurityContextHolder.getContext().setAuthentication(authentication); // authentication 설정
             ```
+    - 프론트엔드 라이브러리 정리
+        - WebJar
+            - Maven Repository에서 확인할 수 있다.
+            - spring 진영에서 패키지화 해서 사용할 수 있도록 한다.
+            - 라이브러리 업데이트가 늦다.
+        - npm
+            - src/main/resource/static 하위에 package.json을 사용하여 라이브러리를 받아와서 정적 리소스로 사용할 수 있다.
+            - 메이븐 빌드 시 static 디렉터리의 package.json를 빌드하도록 설정해야 한다.
