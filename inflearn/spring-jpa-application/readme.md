@@ -72,3 +72,9 @@
         - npm
             - src/main/resource/static 하위에 package.json을 사용하여 라이브러리를 받아와서 정적 리소스로 사용할 수 있다.
             - 메이븐 빌드 시 static 디렉터리의 package.json를 빌드하도록 설정해야 한다.
+    - Thymeleaf fragment
+        - 정의
+            - `th:fragment`
+        - 사용
+            - `th:insert`: 삽입
+            - `th:replace`: 치환
