@@ -54,3 +54,13 @@
           - 이메일과 토큰이 정확한 경우 가입 완료 처리
               - 가입일시 설정
               - 이메일 인증 여부 true로 설정
+    - 자동 로그인
+        - 회원가입 후 바로 로그인 되도록 한다.
+        - `UsernamePasswordAuthenticationToken`을 [사용](./src/main/java/com/studyolle/account/AccountService.java)한다.
+            - AuthenticationManager 내부에서 사용하도록 만든 클래스로 원래는 다른 방식으로 사용해야 한다.
+            - 정석대로 사용하는 방법
+            ```java
+              UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(nickname, password); // 토큰 조회
+              Authentication authentication = authenticationManager.authenticate(token); // 역할 부여
+              SecurityContextHolder.getContext().setAuthentication(authentication); // authentication 설정
+            ```
