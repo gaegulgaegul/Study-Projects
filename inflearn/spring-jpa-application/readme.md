@@ -78,3 +78,17 @@
         - 사용
             - `th:insert`: 삽입
             - `th:replace`: 치환
+    - 현재 인증된 사용자 정보 참조
+        - 스프링 시큐리티의 스프링 웹 MVC 지원
+            - @AuthenticationPrincipal
+                - 핸들러 매개변수로 현재 인증된 Principal을 참조할 수 있다.
+            - 스프링 시큐리티 정보와 Account 사이의 간극을 메우기 위해 [UserAccount](./src/main/java/com/studyolle/account/UserAccount.java)를 생성한다.
+                - 스프링 시큐리티의 User 상속
+    - 로그인 기능
+        - `UserDetailsService` 상속받아 [구현](./src/main/java/com/studyolle/account/AccountService.java)해야 한다.
+        - Spring Security login/logout 설정
+        - [로그인 기억하기(RememberMe)](./src/main/java/com/studyolle/config/SecurityConfig.java)
+            - 세션이 만료되더라도 로그인을 유지하고 싶을 때 사용하게 된다.
+            - username, token(변경됨), series(변경되지 않음)을 조합해서 쿠키값이 생성된다.
+            - `persistent_logins` 메타 테이블을 생성해줘야 한다.
+            - `remember-me`를 key로 전달받아 사용한다. (설정을 통해 변경 가능하다.)
