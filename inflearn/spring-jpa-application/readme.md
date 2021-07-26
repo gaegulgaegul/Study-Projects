@@ -18,6 +18,7 @@
     - GET "/sign-up" 요청을 받아서 account/sign-up.html 페이지를 보여준다.
     - [AccountController](./src/main/java/com/studyolle/account/AccountController.java)
         - [model](./src/main/java/com/studyolle/account/SignUpForm.java) 정보 전달(닉네임, 이메일, 패스워드)
+            - `model.addAttribute(객체)`와 같이 설정하면 자동으로 키는 객체 타입명이 카멜 케이스로 전달된다. 
     - [AccountControllerTest](./src/test/java/com/studyolle/account/AccountControllerTest.java)
         - `@AutoConfigureMockMvc`: MockMvc 자동 설정 추가
         - view, model 테스트
@@ -92,3 +93,13 @@
             - username, token(변경됨), series(변경되지 않음)을 조합해서 쿠키값이 생성된다.
             - `persistent_logins` 메타 테이블을 생성해줘야 한다.
             - `remember-me`를 key로 전달받아 사용한다. (설정을 통해 변경 가능하다.)
+    - 프로필 기능
+        - 프로필 확인 기능
+            - 이메일 인증 후 프로필에 반영 안되는 오류
+                - 이메일 인증 처리 로직은 트랜잭션 범위 밖에서 일어난 일이다.
+                - service로 트랜잭션을 위임한다.
+            - Open EntityManager In View Filter
+                - JPA EntityManager를 요청을 처리하는 전체 프로세스에 바인딩 시켜주는 필터
+                    - 뷰를 랜더링 할때까지 영속성 컨텍스트를 유지하기 때문에 필요한 데이터를 랜더링 하는 시점에 추가로 읽어올 수 있다.
+                    - 엔티티 객체 변경은 반드시 트랜잭션 안에서 할 것
+                        - 트랜잭션 종료 직전 또는 필요한 시점에 변경사항을 DB에 반영
