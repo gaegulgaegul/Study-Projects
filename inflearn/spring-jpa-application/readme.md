@@ -103,3 +103,21 @@
                     - 뷰를 랜더링 할때까지 영속성 컨텍스트를 유지하기 때문에 필요한 데이터를 랜더링 하는 시점에 추가로 읽어올 수 있다.
                     - 엔티티 객체 변경은 반드시 트랜잭션 안에서 할 것
                         - 트랜잭션 종료 직전 또는 필요한 시점에 변경사항을 DB에 반영
+        - 프로필 수정
+            - form 생성
+                - controller에서 model을 통해 현재 유저, 유저의 profile 정보를 전달한다.
+            - 프로필 수정 기능
+                - controller 파라미터 객체
+                    - `@CurrentUser Account account, @Valid [@ModelAttribute(생략)] Profile profile, Errors errors, Model model` 파라미터로 받는다.
+                    - `@ModelAttribute` 옆에 항상 Errors가 있어야 한다. 해당 `@ModelAttribute`에 대한 에러 처리
+                - profile 데이터 바인딩 시에 오류
+                    - 파라미터로 전달 받는 데이터를 객체에 바인딩 할 떄 해당 객체를 기본 생성자로 만들어주고 setter를 통해 데이터를 바인딩한다.
+                    - 기본 생성자(`@NoArgsConstructor`)가 없으면 `NullPointerException` 발생
+                - account 업데이트가 안되는 문제
+                    - account는 session에서 받아온 객체라서 persist 상태가 아니기 때문에 PersistContext가 관리하지 않는다.
+                    - Repository를 통해 save 해준다.
+                - RedirectAttributes
+                    - 리다이렉트 시 데이터를 전달할 수 있다.
+                    - addFlashAttribute
+                        - 리다이렉트 시 한번 사용하고 없어지는 데이터 전달
+                        - 데이터는 리다이렉트 되는 엔드포인트 `Model` 객체에 자동으로 전달된다.
