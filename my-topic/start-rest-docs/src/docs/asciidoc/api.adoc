@@ -1,0 +1,38 @@
+// nav 위치 설정
+:toc: left
+// nav 타이틀명
+:toc-title: 목차
+// 자동 번호 매기기 설정
+:sectnums:
+
+// snippet 위치 설정
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= API 소개
+
+== USER 목록 조회
+
+=== curl
+
+// snippet include
+include::{snippets}/get-users-200-ok/curl-request.adoc[]
+
+=== RESPONSE
+
+include::{snippets}/get-users-200-ok/http-response.adoc[]
+
+== USER 상세 조회
+
+=== curl
+
+include::{snippets}/get-user-with-id-200-ok/curl-request.adoc[]
+
+=== REQUEST
+
+include::{snippets}/get-user-with-id-200-ok/http-request.adoc[]
+
+=== RESPONSE
+
+include::{snippets}/get-user-with-id-200-ok/http-response.adoc[]
