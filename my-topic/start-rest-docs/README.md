@@ -2,8 +2,8 @@
 ![java 11](https://img.shields.io/badge/language-java%2011-yellowgreen)
 ![spring rest docs](https://img.shields.io/badge/lib-spring%20rest%20docs-orange)
 
-- [Spring Rest Docs 설정 및 사용](#Spring_Rest_Docs_설정_및_사용)
-- [Spring Rest Docs 문서화](#Spring_Rest_Docs_문서화)
+- [Spring Rest Docs 설정 및 사용](#Spring-Rest-Docs-설정-및-사용)
+- [Spring Rest Docs 문서화](#Spring-Rest-Docs-문서화)
 <br />
 <hr />
 
